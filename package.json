@@ -1,0 +1,12 @@
+{
+  "author": {
+    "name": "ellise@qq.com"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "cpm detector for component.",
+  "license": "ISC",
+  "main": "index.js",
+  "name": "@cpm/detector",
+  "version": "1.0.0"
+}
