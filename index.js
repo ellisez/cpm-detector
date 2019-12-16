@@ -34,8 +34,27 @@ class CpmDetector {
             for (let file in updateComponent.sources) {
                 const sources=component.sources[file];
                 const updateSources=updateComponent.sources[file];
-                if (updateSources) {
-                    component.sources[file]=updateSources;
+                component.sources[file]=updateSources;
+                // if (sources) {
+                //     mergeSources(sources, updateSources);
+                // } else {
+                //     component.sources[file]=updateSources;
+                // }
+            }
+
+        }
+        function mergeSources(sources, updateSources) {
+            for (let i=0; i<updateSources.length; i++) {
+                const updateItem=updateSources[i];
+                for (let j=0; j<sources.length; j++) {
+                    const sourceItem=sources[j];
+                    if (updateItem.start==sourceItem.start &&
+                        updateItem.end==sourceItem.end) {
+                       continue;
+                    } else {
+                        sources.push(updateItem);
+                        break;
+                    }
                 }
             }
         }
