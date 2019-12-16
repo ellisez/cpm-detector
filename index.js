@@ -16,12 +16,17 @@ class CpmDetector {
         function mergeContainer(container, updateContainer) {
             for (let i=0; i<updateContainer.length; i++) {
                 const updateComponent=updateContainer[i];
+                let hit=false;
                 for (let j=0; j<container.length; j++) {
                     const component=container[j];
                     if (updateComponent.name==component.name) {
                         mergeComponent(component, updateComponent);
+                        hit=true;
                         break;
                     }
+                }
+                if (!hit) {
+                    container.push(updateComponent);
                 }
             }
         }
